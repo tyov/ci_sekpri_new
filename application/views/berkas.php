@@ -123,41 +123,42 @@
 </head>
 
 <body class="easyui-layout">
-    <div data-options="region:'north',border:false" style="height:50px;background:#a1caf4;padding:10px; background-image:url(<?php echo base_url('image/banner.png');?>); background-repeat:no-repeat; background-position:center left;"></div>
-    <div data-options="region:'south',title:'South Title',split:true" style="height:100px;"></div>
-    <div data-options="region:'east',title:'East',split:true" style="width:100px;"></div>
-    <div data-options="region:'west',title:'West',split:true" style="width:100px;"><ul id="tt" class="easyui-tree">
-    <li>
-        <span>Folder</span>
-        <ul>
+
+    <div data-options="region:'east',title:'Filter',collapsed:true" style="width:200px;">kiri</div>
+    <div data-options="region:'west',title:'West'" style="width:200px;">
+        <ul id="tt" class="easyui-tree">
             <li>
-                <span>Sub Folder 1</span>
+                <span>Folder</span>
                 <ul>
-                    <li><span>File 11</span></li>
-                    <li><span>File 12</span></li>
-                    <li><span>File 13</span></li>
+                    <li>
+                        <span>Sub Folder 1</span>
+                        <ul>
+                            <li><span>File 11</span></li>
+                            <li><span>File 12</span></li>
+                            <li><span>File 13</span></li>
+                        </ul>
+                    </li>
+                    <li><span>File 2</span></li>
+                    <li><span>File 3</span></li>
                 </ul>
             </li>
-            <li><span>File 2</span></li>
-            <li><span>File 3</span></li>
+            <li><span>File21</span></li>
         </ul>
-    </li>
-    <li><span>File21</span></li>
-</ul></div>
-<div data-options="region:'center'" style="padding:5px;background:#eee;">
-        <table id="dg" title="Berkas" class="easyui-datagrid" style="width:auto;height:500px"
+    </div>
+<div data-options="region:'center',fit:true" style="background:#eee;">
+        <table id="dg" title="Berkas" class="easyui-datagrid" 
             url="<?php echo base_url();?>index.php/berkas/get_berkas"
             toolbar="#toolbar" pagination="true"
-            rownumbers="true" fitColumns="true" singleSelect="true">
+            rownumbers="true" singleSelect="true" fit="true">
         <thead>
             <tr>
-                <th field="id_berkas" width="30">Kode Berkas</th>
-                <th field="tgl_terima" width="50">Tanggal Terima</th>
-                <th field="penerima_berkas_desc" width="50">Penerima Berkas</th>
-                <th field="pemilik_berkas_desc" width="50">Pemilik Berkas</th>
-                <th field="bagian_desc" width="50">Bagian</th>
-                <th field="isi_berkas" width="50">Isi Berkas</th>
-                <th field="penerima_berkas" width="50" hidden="true">Penerima Berkas</th>
+                <th field="id_berkas" width="30" halign="center" align="center">No</th>
+                <th field="tgl_terima" width="150" halign="center" align="center">Tanggal Terima</th>
+                <th field="penerima_berkas_desc" width="150" halign="center">Penerima Berkas</th>
+                <th field="pemilik_berkas_desc" width="150" halign="center">Pemilik Berkas</th>
+                <th field="bagian_desc" width="300" halign="center" >Bagian</th>
+                <th field="isi_berkas" width="150" halign="center">Isi Berkas</th>
+                <th field="penerima_berkas" width="50"  hidden="true">Penerima Berkas</th>
                 <th field="pemilik_berkas" width="50" hidden="true">Pemilik Berkas</th>
                 <th field="bagian" width="50" hidden="true">Bagian</th>
             </tr>

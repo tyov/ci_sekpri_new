@@ -30,10 +30,11 @@ left join (SELECT * FROM bagian where kode_manajer = '00' and kode_asisten_manaj
 left join (SELECT * FROM bagian where kode_manajer = '00' and kode_asisten_manajer = '00' and kode_supervisor = '00' and kode_staff = '00' and kode_direktur in (1,2,3)) d on a.DIR_AKHIR_ID = d.kode_direktur
 left join karyawan e on a.USER_KIRIM = e.nip
 left join karyawan f on a.USER_AMBIL = F.nip");*/
-			$this->db->select("a.*, penerima_berkas as penerima_berkas_desc,pemilik_berkas as pemilik_berkas_desc, b.nama_bagian as bagian_desc ");
+			$this->db->select("a.*, b.nama_bagian bagian_desc, c.nama_lengkap penerima_berkas_desc, d.nama_lengkap pemilik_berkas_desc");
 			$this->db->from("berkas a");
-			$this->db->join("bagian b", "a.bagian=left(b.kode_jabatan,4)", "left");
-		//iki	$this->db->group_by(); 
+			$this->db->join("bagian b", "a.kode_jabatan=b.kode_jabatan");
+			$this->db->join("karyawan c", "a.penerima_berkas=c.nip");
+			$this->db->join("karyawan d", "a.pemilik_berkas=d.nip");
         	if($searchKey<>''){
 				$this->db->where($searchKey." like '%".$searchValue."%'");	
 			}
