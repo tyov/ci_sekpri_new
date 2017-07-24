@@ -151,22 +151,15 @@
             rownumbers="true" fitColumns="true" singleSelect="true">
         <thead>
             <tr>
-                <th field="NOMOR" width="30">Kode Berkas</th>
-                <th field="KE_desc" width="50">Ke</th>
-                <th field="POSISI_desc" width="50">Posisi</th>
-                <th field="TGL_KIRIM" width="50">Tanggal Kirim</th>
+                <th field="id_berkas" width="30">Kode Berkas</th>
+                <th field="tgl_terima" width="50">Tanggal Terima</th>
+                <th field="penerima_berkas_desc" width="50">Penerima Berkas</th>
+                <th field="pemilik_berkas_desc" width="50">Pemilik Berkas</th>
                 <th field="bagian_desc" width="50">Bagian</th>
-                <th field="keterangan" width="50">Keterangan</th>
-                <th field="PENGIRIM_desc" width="50">Pengirim</th>
-                <th field="pengambil_desc" width="50">Pengambil</th>
-                <th field="status_desc" width="50">Status</th>
-                <th field="KE" width="50" hidden='true'>KE</th>
-                <th field="POSISI" width="50" hidden='true'>POSISI</th>
-                <th field="bagian" width="50" hidden='true'>bagian</th>
-                <th field="PENGIRIM" width="50" hidden='true'>Pengirim</th>
-                <th field="pengambil" width="50" hidden='true'>Pengambil</th>
-                <th field="status" width="50" hidden='true'>Status</th>
-                
+                <th field="isi_berkas" width="50">Isi Berkas</th>
+                <th field="penerima_berkas" width="50" hidden="true">Penerima Berkas</th>
+                <th field="pemilik_berkas" width="50" hidden="true">Pemilik Berkas</th>
+                <th field="bagian" width="50" hidden="true">Bagian</th>
             </tr>
         </thead>
     </table>
