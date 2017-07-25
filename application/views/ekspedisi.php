@@ -156,18 +156,17 @@
 <div data-options="region:'center',fit:true" style="background:#eee;">
         <table id="dg" title="Berkas" class="easyui-datagrid" 
             url="<?php echo base_url();?>index.php/berkas/get_berkas"
-            toolbar="#toolbar" 
-            rownumbers="true" pagination="true" border="false" striped="true" fit="true" singleSelect="true" collapsible="false" nowrap="false" pageSize="10" style="width:auto; height: auto;"
-            >
+            toolbar="#toolbar" pagination="true"
+            rownumbers="true" singleSelect="true" fit="true">
         <thead>
             <tr>
                 <th field="id_berkas" width="50" halign="center" align="center">No</th>
                 <th field="tgl_terima" width="150" halign="center" align="center">Tanggal Terima</th>
                 <th field="penerima_berkas_desc" width="150" halign="center">Penerima Berkas</th>
                 <th field="pemilik_berkas_desc" width="150" halign="center">Pemilik Berkas</th>
-                <th field="keterangan" width="250" halign="center" hidden="true">Keterangan</th>
+                <th field="keterangan" width="250" halign="center" >Keterangan</th>
                 <th field="bagian_desc" width="200" halign="center" >Bagian</th>
-                <th field="isi_berkas" width="400" halign="center" >Isi Berkas</th>
+                <th field="isi_berkas" width="150" halign="center">Isi Berkas</th>
                 <th field="penerima_berkas" width="50"  hidden="true">Penerima Berkas</th>
                 <th field="pemilik_berkas" width="50" hidden="true">Pemilik Berkas</th>
                 <th field="bagian" width="50" hidden="true">Bagian</th>
@@ -196,7 +195,7 @@
             ]], panelWidth:450" class="easyui-combogrid" name="kode_jabatan" required="true" label="Bagian:" style="width:100%"></select>
             </div>
             <div style="margin-bottom:10px">
-                <input name="isi_berkas" class="easyui-textbox" label="Isi Berkas:" style="width:100%; height:100px" data-options="multiline:true">
+                <input name="isi_berkas" class="easyui-textbox" label="Isi Berkas:" style="width:100%">
             </div>
         </form>
     </div>
