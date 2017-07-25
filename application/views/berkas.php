@@ -153,10 +153,10 @@
             </li>
         </ul>
     </div>
-<div data-options="region:'center',fit:true" style="background:#eee;">
+<div data-options="region:'center'" style="background:#eee;">
         <table id="dg" title="Berkas" class="easyui-datagrid" 
             url="<?php echo base_url();?>index.php/berkas/get_berkas"
-            toolbar="#toolbar" 
+            toolbar="#toolbar"
             rownumbers="true" pagination="true" border="false" striped="true" fit="true" singleSelect="true" collapsible="false" nowrap="false" pageSize="10" style="width:auto; height: auto;"
             >
         <thead>
@@ -189,10 +189,10 @@
                 <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="pemilik_berkas" required="true" label="Pemilik:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                 <select data-options="idField:'kode_jabatan',textField:'keterangan',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian', columns:[[
+                 <select data-options="idField:'kode_jabatan',textField:'nama_bagian',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian', columns:[[
                 {field:'kode_jabatan',title:'Kode Jabatan',width:100,sortable:true},
-                {field:'keterangan',title:'Keterangan',width:160,sortable:true},
-                {field:'nama_bagian',title:'Bagian',width:170,sortable:true}
+                {field:'nama_bagian',title:'Bagian',width:170,sortable:true},
+                {field:'keterangan',title:'Keterangan',width:160,sortable:true}
             ]], panelWidth:450" class="easyui-combogrid" name="kode_jabatan" required="true" label="Bagian:" style="width:100%"></select>
             </div>
             <div style="margin-bottom:10px">
