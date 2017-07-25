@@ -30,7 +30,7 @@ left join (SELECT * FROM bagian where kode_manajer = '00' and kode_asisten_manaj
 left join (SELECT * FROM bagian where kode_manajer = '00' and kode_asisten_manajer = '00' and kode_supervisor = '00' and kode_staff = '00' and kode_direktur in (1,2,3)) d on a.DIR_AKHIR_ID = d.kode_direktur
 left join karyawan e on a.USER_KIRIM = e.nip
 left join karyawan f on a.USER_AMBIL = F.nip");*/
-			$this->db->select("a.*, b.nama_bagian bagian_desc, c.nama_lengkap penerima_berkas_desc, d.nama_lengkap pemilik_berkas_desc");
+			$this->db->select("a.*, b.nama_bagian bagian_desc, c.nama_lengkap penerima_berkas_desc, d.nama_lengkap pemilik_berkas_desc, (CONVERT(varchar(10),a.tgl_terima,101)+''+RIGHT(CONVERT(varchar(19),tgl_terima,120),9)) as tgl_terima_desc");
 			$this->db->from("berkas a");
 			$this->db->join("bagian b", "a.kode_jabatan=b.kode_jabatan");
 			$this->db->join("karyawan c", "a.penerima_berkas=c.nip");
@@ -45,34 +45,28 @@ left join karyawan f on a.USER_AMBIL = F.nip");*/
 
 	public function tambah_berkas(){
 
-/*		$KE = htmlspecialchars($_REQUEST['KE']);
-		$POSISI = htmlspecialchars($_REQUEST['POSISI']);
-		$TGL_KIRIM = htmlspecialchars($_REQUEST['TGL_KIRIM']);
-		$bagian = htmlspecialchars($_REQUEST['bagian']);
-		$keterangan = htmlspecialchars($_REQUEST['keterangan']);
-		$PENGIRIM = htmlspecialchars($_REQUEST['PENGIRIM']);
-		$pengambil = htmlspecialchars($_REQUEST['pengambil']);
-		$status = htmlspecialchars($_REQUEST['status']);
+		$penerima_berkas = htmlspecialchars($_REQUEST['penerima_berkas']);
+		$pemilik_berkas = htmlspecialchars($_REQUEST['pemilik_berkas']);
+		$kode_jabatan = htmlspecialchars($_REQUEST['kode_jabatan']);
+		$isi_berkas = htmlspecialchars($_REQUEST['isi_berkas']);
 
-		$nomor = $this->db->query("select dbo.getNomorDokumen() as baru")->row_array();
+		$id_berkas = $this->db->query("select dbo.getNomorDokumen() as baru")->row_array();
+		$tgl_terima = $this->db->query("select getDate() as baru")->row_array();
 
 		$data = array(
-		        'NOMOR' => $nomor['baru'],
-		        'BAGIAN_ID' => $bagian,
-		        'TGL_KIRIM' => $TGL_KIRIM,
-		        'USER_KIRIM' => $PENGIRIM,
-		        'USER_AMBIL' => $pengambil,
-		        'DIR_AWAL_ID' => $KE,
-		        'DIR_AKHIR_ID' => $POSISI,
-		        'KETERANGAN' => $keterangan,
-		        'STATUS' => $status,
+		        'id_berkas' => $id_berkas['baru'],
+		        'tgl_terima' => $tgl_terima['baru'],
+		        'penerima_berkas' => $penerima_berkas,
+		        'pemilik_berkas' => $pemilik_berkas,
+		        'kode_jabatan' => $kode_jabatan,
+		        'isi_berkas' => $isi_berkas,
 		);
 
-		if ($this->db->insert('TBL_BERKAS', $data)) {
+		if ($this->db->insert('berkas', $data)) {
 			return "success";
 		} else {
 			return "insert failed";
-		}*/
+		}
 	}
 
 	public function hapus_berkas($id_berkas)

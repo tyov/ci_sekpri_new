@@ -123,26 +123,34 @@
 </head>
 
 <body class="easyui-layout">
-
+     <div data-options="region:'north',border:false" style="height:50px;background:#a1caf4;padding:10px; background-image:url(<?php echo base_url('image/banner.png');?>); background-repeat:no-repeat; background-position:center left;"></div>
     <div data-options="region:'east',title:'Filter',collapsed:true" style="width:200px;">kiri</div>
-    <div data-options="region:'west',title:'West'" style="width:200px;">
+    <div data-options="region:'west',title:'Menu'" style="width:200px;">
         <ul id="tt" class="easyui-tree">
             <li>
-                <span>Folder</span>
+                <span>Berkas</span>
                 <ul>
-                    <li>
-                        <span>Sub Folder 1</span>
-                        <ul>
-                            <li><span>File 11</span></li>
-                            <li><span>File 12</span></li>
-                            <li><span>File 13</span></li>
-                        </ul>
-                    </li>
-                    <li><span>File 2</span></li>
-                    <li><span>File 3</span></li>
+                    <li><span>Berkas</span></li>
+                    <li><span>Ekspedisi</span></li>
+                    <li><span>Master Ekspedisi</span></li>
                 </ul>
             </li>
-            <li><span>File21</span></li>
+            <li>
+                <span>Agenda</span>
+                <ul>
+                    <li><span>Agenda</span></li>
+                    <li><span>Ekspedisi</span></li>
+                    <li><span>Master Agenda</span></li>
+                </ul>
+            </li>
+            <li>
+                <span>Laporan</span>
+                <ul>
+                    <li><span>Laporan</span></li>
+                    <li><span>Ekspedisi</span></li>
+                    <li><span>Master Laporan</span></li>
+                </ul>
+            </li>
         </ul>
     </div>
 <div data-options="region:'center',fit:true" style="background:#eee;">
@@ -152,7 +160,7 @@
             rownumbers="true" singleSelect="true" fit="true">
         <thead>
             <tr>
-                <th field="id_berkas" width="30" halign="center" align="center">No</th>
+                <th field="id_berkas" width="50" halign="center" align="center">No</th>
                 <th field="tgl_terima" width="150" halign="center" align="center">Tanggal Terima</th>
                 <th field="penerima_berkas_desc" width="150" halign="center">Penerima Berkas</th>
                 <th field="pemilik_berkas_desc" width="150" halign="center">Pemilik Berkas</th>
@@ -173,31 +181,16 @@
         <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
             <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">Data</div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'kode_direktur',textField:'keterangan',url:'<?php echo base_url(); ?>index.php/bagian/get_direktur'" name="KE" class="easyui-combobox" required="true" label="Ke:" style="width:100%">
+                <input data-options="valueField:'penerima_berkas',textField:'penerima_berkas_desc',url:'<?php echo base_url(); ?>index.php/bagian/get_direktur'" name="penerima_berkas_desc" class="easyui-combobox" required="true" label="Penerima Berkas:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'kode_direktur',textField:'keterangan',url:'<?php echo base_url(); ?>index.php/bagian/get_direktur'" name="POSISI" class="easyui-combobox" required="true" label="Posisi:" style="width:100%">
+                <input data-options="valueField:'pemilik_berkas',textField:'pemilik_berkas_desc',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian'" class="easyui-combobox" name="pemilik_berkas_desc" required="true" label="Pemilik Berkas:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input id="TGL_KIRIM" name="TGL_KIRIM"  label="Tgl Kirim:" style="width:100%">
+                 <input data-options="valueField:'kode_jabatan',textField:'bagian_desc',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="bagian_desc" required="true" label="Bagian:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'kode',textField:'nama_bagian',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian'" class="easyui-combobox" name="bagian" required="true" label="Bagian:" style="width:100%">
-            </div>
-            <div style="margin-bottom:10px">
-                <input name="keterangan" class="easyui-textbox" label="Keterangan:" style="width:100%">
-            </div>
-            <div style="margin-bottom:10px">
-                 <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="PENGIRIM" required="true" label="Pengirim:" style="width:100%">
-            </div>
-            <div style="margin-bottom:10px">
-                <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="pengambil" label="Pengambil:" style="width:100%">
-            </div>
-            <div style="margin-bottom:10px">
-                <select class="easyui-combobox" name="status" required="true" label="Status:" style="width:100%" >
-                    <option value="0">Belum Terkirim</option>
-                    <option value="1">Sudah Terkirim</option>
-                </select>
+                <input name="isi_berkas" class="easyui-textbox" label="Isi Berkas:" style="width:100%">
             </div>
         </form>
     </div>
@@ -247,7 +240,7 @@
             }  
         });
 
-        $('#TGL_KIRIM').datetimebox({
+        $('#tgl_terima').datetimebox({
             required:true
         });
 
@@ -255,18 +248,18 @@
             return (i < 10) ? "0" + i : i;
         }
 
-        // $('#TGL_KIRIM').datetimebox('datebox')
+        // $('#tgl_terima').datetimebox('datebox')
 
     function updateBerkas(){
             var row = $('#dg').datagrid('getSelected');
-            console.log(row.TGL_KIRIM);
+            console.log(row.tgl_terima);
             if (row){
                 $('#dlg').dialog('open').dialog('center').dialog('setTitle','Update Berkas');
                 $('#fm').form('load',row);
                 url = '<?php echo base_url(); ?>index.php/berkas/update_berkas/'+row.NOMOR;
-                var tgl_kirim = row.TGL_KIRIM;
-                tgl_kirim.toString();
-                 $('#TGL_KIRIM').datetimebox('setValue', tgl_kirim.toString());
+                var tgl_terima = row.tgl_terima;
+                tgl_terima.toString();
+                 $('#tgl_terima').datetimebox('setValue', tgl_terima.toString());
             }
         }
 
