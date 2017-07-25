@@ -38,3 +38,20 @@ MASTER EKSPEDISI
 id_jenis_ekspedisi	int
 
 keterangan			text
+----------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------
+TABEL_RUANGAN
+----------------
+id_ruangan			int
+keterangan			text
+
+
+TABEL_AGENDA
+----------------
+id_agenda			int
+id_ruangan			int
+id_pemesanan		(NIP KARYAWAN)
+tgl_pemesanan		smalldatetime
+peserta(ket)		text
+tgl_mulai			smalldatetime
+tgl_selesai			smalldatetime
