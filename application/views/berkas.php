@@ -189,11 +189,7 @@
                 <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="pemilik_berkas" required="true" label="Pemilik:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                 <select data-options="idField:'kode_jabatan',textField:'nama_bagian',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian', columns:[[
-                {field:'kode_jabatan',title:'Kode Jabatan',width:100,sortable:true},
-                {field:'nama_bagian',title:'Bagian',width:170,sortable:true},
-                {field:'keterangan',title:'Keterangan',width:160,sortable:true}
-            ]], panelWidth:450" class="easyui-combogrid" name="kode_jabatan" required="true" label="Bagian:" style="width:100%"></select>
+                 <select data-options="valueField:'kode',textField:'nama_bagian',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian'" class="easyui-combobox" name="kode_bagian" required="true" label="Bagian:" style="width:100%"></select>
             </div>
             <div style="margin-bottom:10px">
                 <input name="isi_berkas" class="easyui-textbox" label="Isi Berkas:" style="width:100%; height:100px" data-options="multiline:true">
