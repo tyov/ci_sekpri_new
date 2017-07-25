@@ -164,7 +164,8 @@
                 <th field="tgl_terima" width="150" halign="center" align="center">Tanggal Terima</th>
                 <th field="penerima_berkas_desc" width="150" halign="center">Penerima Berkas</th>
                 <th field="pemilik_berkas_desc" width="150" halign="center">Pemilik Berkas</th>
-                <th field="bagian_desc" width="300" halign="center" >Bagian</th>
+                <th field="keterangan" width="250" halign="center" >Keterangan</th>
+                <th field="bagian_desc" width="200" halign="center" >Bagian</th>
                 <th field="isi_berkas" width="150" halign="center">Isi Berkas</th>
                 <th field="penerima_berkas" width="50"  hidden="true">Penerima Berkas</th>
                 <th field="pemilik_berkas" width="50" hidden="true">Pemilik Berkas</th>
@@ -181,13 +182,17 @@
         <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
             <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">Data</div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'penerima_berkas',textField:'penerima_berkas_desc',url:'<?php echo base_url(); ?>index.php/bagian/get_direktur'" name="penerima_berkas_desc" class="easyui-combobox" required="true" label="Penerima Berkas:" style="width:100%">
+                <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" name="penerima_berkas" class="easyui-combobox" required="true" label="Penerima Berkas:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'pemilik_berkas',textField:'pemilik_berkas_desc',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian'" class="easyui-combobox" name="pemilik_berkas_desc" required="true" label="Pemilik Berkas:" style="width:100%">
+                <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="pemilik_berkas" required="true" label="Pemilik Berkas:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                 <input data-options="valueField:'kode_jabatan',textField:'bagian_desc',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="bagian_desc" required="true" label="Bagian:" style="width:100%">
+                 <select data-options="idField:'kode_jabatan',textField:'keterangan',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian', columns:[[
+                {field:'kode_jabatan',title:'Kode Jabatan',width:100,sortable:true},
+                {field:'keterangan',title:'Keterangan',width:160,sortable:true},
+                {field:'nama_bagian',title:'Bagian',width:170,sortable:true}
+            ]], panelWidth:450" class="easyui-combogrid" name="kode_jabatan" required="true" label="Bagian:" style="width:100%"></select>
             </div>
             <div style="margin-bottom:10px">
                 <input name="isi_berkas" class="easyui-textbox" label="Isi Berkas:" style="width:100%">

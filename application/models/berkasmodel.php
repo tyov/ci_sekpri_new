@@ -30,7 +30,7 @@ left join (SELECT * FROM bagian where kode_manajer = '00' and kode_asisten_manaj
 left join (SELECT * FROM bagian where kode_manajer = '00' and kode_asisten_manajer = '00' and kode_supervisor = '00' and kode_staff = '00' and kode_direktur in (1,2,3)) d on a.DIR_AKHIR_ID = d.kode_direktur
 left join karyawan e on a.USER_KIRIM = e.nip
 left join karyawan f on a.USER_AMBIL = F.nip");*/
-			$this->db->select("a.*, b.nama_bagian bagian_desc, c.nama_lengkap penerima_berkas_desc, d.nama_lengkap pemilik_berkas_desc, (CONVERT(varchar(10),a.tgl_terima,101)+''+RIGHT(CONVERT(varchar(19),tgl_terima,120),9)) as tgl_terima_desc");
+			$this->db->select("a.*, b.nama_bagian bagian_desc, c.nama_lengkap penerima_berkas_desc, d.nama_lengkap pemilik_berkas_desc, b.keterangan");
 			$this->db->from("berkas a");
 			$this->db->join("bagian b", "a.kode_jabatan=b.kode_jabatan");
 			$this->db->join("karyawan c", "a.penerima_berkas=c.nip");

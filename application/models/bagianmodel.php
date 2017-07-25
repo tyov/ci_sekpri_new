@@ -16,14 +16,8 @@ class Bagianmodel extends CI_Model {
 		$this->db->from("bagian");
 		$this->db->where("nama_bagian is not null");
 		$this->db->order_by("nama_bagian");*/
-		$hasil = $this->db->query("select z.* from(
-select distinct nama_bagian, left(kode_jabatan,4) as kode 
-from bagian where nama_bagian is not null 
-and left(kode_jabatan,4) not in('1.00','2.00','3.00','9.01','8.01','8.02','8.03')
-union 
-select keterangan as nama_bagian,left(kode_jabatan,4) from bagian where left(kode_jabatan,4) in('1.00','2.00','3.00')
-)z
-order by z.nama_bagian")->result_array();
+		$hasil = $this->db->query("select distinct a.kode_jabatan, a.keterangan, a.nama_bagian
+ from bagian a where nama_bagian is not null")->result_array();
 		//$hasil = $this->db->get()->result_array();
         return $hasil;
 	}
