@@ -261,7 +261,7 @@
             if (row){
                 $('#dlg').dialog('open').dialog('center').dialog('setTitle','Update Berkas');
                 $('#fm').form('load',row);
-                url = '<?php echo base_url(); ?>index.php/berkas/update_berkas/'+row.NOMOR;
+                url = '<?php echo base_url(); ?>index.php/berkas/update_berkas/'+row.id_berkas;
                 var tgl_terima = row.tgl_terima;
                 tgl_terima.toString();
                  $('#tgl_terima').datetimebox('setValue', tgl_terima.toString());
@@ -273,7 +273,7 @@
         if (row){
             $.messager.confirm('Confirm','Yakin hapus data ini?',function(r){
                 if (r){
-                    $.post('<?php echo base_url(); ?>index.php/berkas/hapus_berkas/'+row.NOMOR,{NOMOR:row.NOMOR},function(result){
+                    $.post('<?php echo base_url(); ?>index.php/berkas/hapus_berkas/'+row.id_berkas,{id_berkas:row.id_berkas},function(result){
                         //if (result.success){
                             $('#dg').datagrid('reload');    // reload the user data
                         //} else {

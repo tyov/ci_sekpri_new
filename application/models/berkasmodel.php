@@ -81,24 +81,16 @@ left join karyawan f on a.USER_AMBIL = F.nip");*/
 
 	public function update_berkas($id_berkas)
 	{
-/*		$KE = htmlspecialchars($_REQUEST['KE']);
-		$POSISI = htmlspecialchars($_REQUEST['POSISI']);
-		$TGL_KIRIM = htmlspecialchars($_REQUEST['TGL_KIRIM']);
-		$bagian = htmlspecialchars($_REQUEST['bagian']);
-		$keterangan = htmlspecialchars($_REQUEST['keterangan']);
-		$PENGIRIM = htmlspecialchars($_REQUEST['PENGIRIM']);
-		$pengambil = htmlspecialchars($_REQUEST['pengambil']);
-		$status = htmlspecialchars($_REQUEST['status']);
+		$penerima_berkas = htmlspecialchars($_REQUEST['penerima_berkas']);
+		$pemilik_berkas = htmlspecialchars($_REQUEST['pemilik_berkas']);
+		$kode_jabatan = htmlspecialchars($_REQUEST['kode_jabatan']);
+		$isi_berkas = htmlspecialchars($_REQUEST['isi_berkas']);
 
 		$data = array(
-		        'BAGIAN_ID' => $bagian,
-		        'TGL_KIRIM' => $TGL_KIRIM,
-		        'USER_KIRIM' => $PENGIRIM,
-		        'USER_AMBIL' => $pengambil,
-		        'DIR_AWAL_ID' => $KE,
-		        'DIR_AKHIR_ID' => $POSISI,
-		        'KETERANGAN' => $keterangan,
-		        'STATUS' => $status,
+		        'penerima_berkas' => $penerima_berkas,
+		        'pemilik_berkas' => $pemilik_berkas,
+		        'kode_jabatan' => $kode_jabatan,
+		        'isi_berkas' => $isi_berkas,
 		);
 
 		$this->db->where('id_berkas', $id_berkas);
@@ -107,6 +99,6 @@ left join karyawan f on a.USER_AMBIL = F.nip");*/
 			return "success";
 		} else {
 			return "update failed";
-		}*/
+		}
 	}
 }
