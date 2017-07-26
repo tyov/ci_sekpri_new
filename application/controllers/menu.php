@@ -19,20 +19,23 @@ class Menu extends CI_Controller {
 				    "text":"Berkas",
 				    "iconCls":"icon-save",
 				    "children":[{
+				    	"id":"11",
 				        "text":"Berkas",
-				        "checked":false,
+				        "checked":true,
 				        "attributes":{
 				            "url":"berkas",
 				            "view":"berkas"
 				        	}
 				        },{
+				        "id":"12",
 				        "text":"Ekspedisi",
 				        "checked":false,
 				        "attributes":{
-				            "url":"berkas",
-				            "view":"berkas"
+				            "url":"ekspedisi",
+				            "view":"ekspedisi"
 				        	}
 				        },{
+				        "id":"13",
 				        "text":"Master Ekspedisi",
 				        "checked":false,
 				        "attributes":{
@@ -55,8 +58,8 @@ class Menu extends CI_Controller {
 				        "text":"Ekspedisi",
 				        "checked":false,
 				        "attributes":{
-				            "url":"berkas",
-				            "view":"berkas"
+				            "url":"ekspedisi",
+				            "view":"ekspedisi"
 				        	}
 				        },{
 				        "text":"Master Agenda",
@@ -95,6 +98,14 @@ class Menu extends CI_Controller {
 				 }
 			    ]';
 		echo $menu;	
+	}
+
+	public function getContent(){
+		//print_r($_POST);
+		$url = isset($_POST['url'])?$_POST['url']:"";
+		$view = isset($_POST['view'])?$_POST['view']:"";
+		$view = $this->load->view($view,null,true);
+		echo $view;
 	}
 
 }

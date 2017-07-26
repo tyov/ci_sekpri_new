@@ -27,12 +27,13 @@
     <div data-options="region:'east',title:'Filter',collapsed:true" style="width:200px;">
     kiri
     </div>
+    <div data-options="region:'center'" id="center-content" style="background:#eee;">
+    tengah
+    </div>
     <div data-options="region:'west',title:'Menu'" style="width:200px;">
         <?php include('common/sidebar_menu.php') ?>
     </div>
-<div data-options="region:'center'" style="background:#eee;">
-    tengah
-</div>
+
    
 </body>
 <script type="text/javascript">
