@@ -1,0 +1,101 @@
+<style>
+        *{
+            font-size:12px;
+        }
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-family: 'ubunturegular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            padding:20px;
+            font-size:12px;
+            margin:0;
+            background-color:#2980b9;
+        }
+        .logo{
+            text-align:center;
+            margin-bottom:10px;
+        }
+        .logo img.pdam{
+            background-color:#fff;
+            width:100px;
+            border-radius:50%;
+            padding:10px;
+            margin-left:0px;
+        }
+        .logo img.app{
+            background-color:#eee;
+            width:60px;
+            border-radius:50%;
+            margin-left:-25px;
+        }
+        .titleBox{
+            font-size:26px;
+            text-align:center;
+            padding:0 10px 10px 10px;
+            color:#fff;
+        }
+        .supTitle{
+            font-size:16px;
+            color:#fff;
+            z-index:10;
+            padding:0 10px 0 10px;
+        }
+        .supTitle span{
+            background-color:#f39c12;
+            padding:5px;
+            border-radius:6px;
+            margin:1px;
+        }
+        .box{
+            width:300px;
+            margin:auto;
+            border-radius:4px;
+        }
+        .inputText, .inputButton{
+            width:100%;
+            -webkit-box-sizing : border-box;‌​
+            -moz-box-sizing : border-box;
+            box-sizing : border-box;
+            border:none;
+            font-size:14px;
+            transition:all ease-in-out 0.15s;
+        }
+        .inputText{
+            padding:15px;
+            background-color:#fff;
+            border-bottom:#ddd solid 1px;
+            text-align:center;
+        }
+        .inputButton{
+            padding:10px;
+            background-color:#2ecc71;
+            font-size:16px;
+            border-bottom:#27ae60 solid 3px;
+            border-radius:4px;
+            color:#fff;
+        }
+        .inputButton:hover{
+            background-color:#27ae60;
+            border-bottom:#1f9f55 solid 3px;
+            color:#eee;
+            text-shadow: 0px 0px 3px #fff;
+        }
+        .inputArea, .buttonArea{
+            padding:10px;
+        }
+        .inputArea input:first-child {
+            border-radius:4px 4px 0 0;
+        }
+        .inputArea input:last-child {
+            border-bottom:none;
+            border-radius:0 0 4px 4px;
+            border-bottom:#ddd solid 3px;
+        }
+        .footer{
+            text-align:center;
+            color:#fff;
+            padding-top:10px;
+        }
+        #infoArea{color:#fff; text-align:center;}
+</style>    
