@@ -7,18 +7,18 @@
             >
         <thead>
             <tr>
-                <th field="id_ekspedisi" width="50" halign="center" align="center">No</th>
-                <th field="id_jenis_ekspedisi" width="150" halign="center" align="center">Tanggal Terima</th>
-                <th field="id_berkas" width="150" halign="center">Penerima Berkas</th>
-                <th field="tgl_ekspedisi" width="150" halign="center">Pemilik Berkas</th>
-                <th field="tujuan" width="250" halign="center" hidden="true">Keterangan</th>
-                <th field="keterangan" width="200" halign="center" >Bagian</th>
-                <th field="petugas_ekspedisi" width="400" halign="center" >Isi Berkas</th>
+                <th field="id_ekspedisi" width="50" halign="center" align="center">No Ekspedisi</th>
+                <th field="id_jenis_ekspedisi" width="150" halign="center" align="center">Jenis Ekspedisi</th>
+                <th field="id_berkas" width="150" halign="center">No Berkas</th>
+                <th field="tgl_ekspedisi" width="150" halign="center">Tanggal Ekspedisi</th>
+                <th field="tujuan" width="250" halign="center" hidden="true">Tujuan</th>
+                <th field="keterangan" width="200" halign="center" >Keterangan</th>
+                <th field="petugas_ekspedisi" width="400" halign="center" >Petugas Ekspedisi</th>
             </tr>
         </thead>
     </table>
     <div id="toolbar">
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="tambahBerkas()">Tambah</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="tambahEkspedisi()">Tambah</a>
     </div>
 </div>
     <div id="dlg" class="easyui-dialog" style="width:400px"
@@ -26,27 +26,27 @@
         <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
             <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">Data</div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" name="penerima_berkas" class="easyui-combobox" required="true" label="Penerima:" style="width:100%">
+                <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" name="penerima_Ekspedisi" class="easyui-combobox" required="true" label="Penerima:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="pemilik_berkas" required="true" label="Pemilik:" style="width:100%">
+                <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="pemilik_Ekspedisi" required="true" label="Pemilik:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
                  <select data-options="valueField:'kode',textField:'nama_bagian',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian'" class="easyui-combobox" name="kode_bagian" required="true" label="Bagian:" style="width:100%"></select>
             </div>
             <div style="margin-bottom:10px">
-                <input name="isi_berkas" class="easyui-textbox" label="Isi Berkas:" style="width:100%; height:100px" data-options="multiline:true">
+                <input name="isi_Ekspedisi" class="easyui-textbox" label="Isi Ekspedisi:" style="width:100%; height:100px" data-options="multiline:true">
             </div>
         </form>
     </div>
     <div id="dlg-buttons">
-        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="simpanBerkas()" style="width:90px">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="simpanEkspedisi()" style="width:90px">Save</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
     </div>
 
     <div id="mm" class="easyui-menu" style="width:120px;">
-    <div data-options="iconCls:'icon-edit'" plain="true" onclick="updateBerkas()">Edit</div>
-    <div data-options="iconCls:'icon-remove'" plain="true" onclick="hapusBerkas()">Hapus</div>
+    <div data-options="iconCls:'icon-edit'" plain="true" onclick="updateEkspedisi()">Edit</div>
+    <div data-options="iconCls:'icon-remove'" plain="true" onclick="hapusEkspedisi()">Hapus</div>
     <div class="menu-sep"></div>
     <div>Exit</div>
     </div>
@@ -54,11 +54,11 @@
 <script type="text/javascript">
         
     var url;
-    function tambahBerkas(){
+    function tambahEkspedisi(){
 
-           $('#dlg').dialog('open').dialog('center').dialog('setTitle','Tambah Berkas');
+           $('#dlg').dialog('open').dialog('center').dialog('setTitle','Tambah Ekspedisi');
            $('#fm').form('clear');
-           url = '<?php echo base_url(); ?>index.php/berkas/tambah_berkas';
+           url = '<?php echo base_url(); ?>index.php/Ekspedisi/tambah_ekspedisi';
         }
 
 
@@ -85,35 +85,25 @@
             }  
         });
 
-        $('#tgl_terima').datetimebox({
-            required:true
-        });
-
-        function checkTime(i) {
-            return (i < 10) ? "0" + i : i;
-        }
-
-        // $('#tgl_terima').datetimebox('datebox')
-
-    function updateBerkas(){
+    function updateEkspedisi(){
             var row = $('#dg').datagrid('getSelected');
             console.log(row.tgl_terima);
             if (row){
-                $('#dlg').dialog('open').dialog('center').dialog('setTitle','Update Berkas');
+                $('#dlg').dialog('open').dialog('center').dialog('setTitle','Update Ekspedisi');
                 $('#fm').form('load',row);
-                url = '<?php echo base_url(); ?>index.php/berkas/update_berkas/'+row.id_berkas;
+                url = '<?php echo base_url(); ?>index.php/Ekspedisi/update_ekspedisi/'+row.id_ekspedisi;
                 var tgl_terima = row.tgl_terima;
                 tgl_terima.toString();
                  $('#tgl_terima').datetimebox('setValue', tgl_terima.toString());
             }
         }
 
-    function hapusBerkas() {
+    function hapusEkspedisi() {
         var row = $('#dg').datagrid('getSelected');
         if (row){
             $.messager.confirm('Confirm','Yakin hapus data ini?',function(r){
                 if (r){
-                    $.post('<?php echo base_url(); ?>index.php/berkas/hapus_berkas/'+row.id_berkas,{id_berkas:row.id_berkas},function(result){
+                    $.post('<?php echo base_url(); ?>index.php/Ekspedisi/hapus_ekspedisi/'+row.id_ekspedisi,{id_ekspedisi:row.id_ekspedisi},function(result){
                         //if (result.success){
                             $('#dg').datagrid('reload');    // reload the user data
                         //} else {
@@ -128,7 +118,7 @@
         }
     }
 
-    function simpanBerkas(){
+    function simpanEkspedisi(){
         //console.log("test");
         //console.log(url);
 
