@@ -1,6 +1,6 @@
 
 <div data-options="region:'center'" style="background:#eee;">
-        <table id="dg" title="Berkas" class="easyui-datagrid" 
+        <table id="dg"  class="easyui-datagrid" 
             url="<?php echo base_url();?>index.php/berkas/get_berkas"
             toolbar="#toolbar"
             rownumbers="true" pagination="true" border="false" striped="true" fit="true" singleSelect="true" collapsible="false" nowrap="false" pageSize="10" style="width:auto; height: auto;"

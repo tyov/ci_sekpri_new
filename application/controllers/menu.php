@@ -104,8 +104,16 @@ class Menu extends CI_Controller {
 		//print_r($_POST);
 		$url = isset($_POST['url'])?$_POST['url']:"";
 		$view = isset($_POST['view'])?$_POST['view']:"";
-		$view = $this->load->view($view,null,true);
-		echo $view;
+		$this->load->view($view,null,true);
+		//echo $view;
+	}
+
+	public function getContentMenu($view=''){
+		// //print_r($_POST);
+		// $url = isset($_POST['url'])?$_POST['url']:"";
+		// $view = isset($_POST['view'])?$_POST['view']:"";
+		$this->load->view($view);
+		//echo $view;
 	}
 
 }
