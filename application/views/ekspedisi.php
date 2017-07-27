@@ -1,22 +1,19 @@
 
 <div data-options="region:'center'" style="background:#eee;">
         <table id="dg"  class="easyui-datagrid" 
-            url="<?php echo base_url();?>index.php/berkas/get_berkas"
+            url="<?php echo base_url();?>index.php/ekspedisi/get_ekspedisi"
             toolbar="#toolbar"
             rownumbers="true" pagination="true" border="false" striped="true" singleSelect="true" nowrap="false" pageSize="10" fitColumns="true" style="width:auto; height: 545px;" 
             >
         <thead>
             <tr>
-                <th field="id_berkas" width="50" halign="center" align="center">No</th>
-                <th field="tgl_terima" width="150" halign="center" align="center">Tanggal Terima</th>
-                <th field="penerima_berkas_desc" width="150" halign="center">Penerima Berkas</th>
-                <th field="pemilik_berkas_desc" width="150" halign="center">Pemilik Berkas</th>
-                <th field="keterangan" width="250" halign="center" hidden="true">Keterangan</th>
-                <th field="bagian_desc" width="200" halign="center" >Bagian</th>
-                <th field="isi_berkas" width="400" halign="center" >Isi Berkas</th>
-                <th field="penerima_berkas" width="50"  hidden="true">Penerima Berkas</th>
-                <th field="pemilik_berkas" width="50" hidden="true">Pemilik Berkas</th>
-                <th field="bagian" width="50" hidden="true">Bagian</th>
+                <th field="id_ekspedisi" width="50" halign="center" align="center">No</th>
+                <th field="id_jenis_ekspedisi" width="150" halign="center" align="center">Tanggal Terima</th>
+                <th field="id_berkas" width="150" halign="center">Penerima Berkas</th>
+                <th field="tgl_ekspedisi" width="150" halign="center">Pemilik Berkas</th>
+                <th field="tujuan" width="250" halign="center" hidden="true">Keterangan</th>
+                <th field="keterangan" width="200" halign="center" >Bagian</th>
+                <th field="petugas_ekspedisi" width="400" halign="center" >Isi Berkas</th>
             </tr>
         </thead>
     </table>

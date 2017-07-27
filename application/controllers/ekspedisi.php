@@ -14,6 +14,13 @@ class Ekspedisi extends CI_Controller {
 		$this->load->view('ekspedisi');
 	}
 
+	public function get_ekspedisi()
+	{
+		$data['rows']=$this->ekspedisimodel->getJson('rows');
+		$data['total']=$this->ekspedisimodel->getJson('total');
+		echo json_encode($data);
+	}
+
 }
 
 /* End of file ekspedisi.php */
