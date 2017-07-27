@@ -26,17 +26,21 @@
         <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
             <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">Data</div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" name="penerima_Ekspedisi" class="easyui-combobox" required="true" label="Penerima:" style="width:100%">
+                <input data-options="valueField:'id_jenis_ekspedisi',textField:'id_jenis_ekspedisi',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" name="id_jenis_ekspedisi" class="easyui-combobox" required="true" label="id_jenis_ekspedisi:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="pemilik_Ekspedisi" required="true" label="Pemilik:" style="width:100%">
+                <input data-options="valueField:'id_berkas',textField:'id_berkas',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="id_berkas" required="id_berkas" label="Pemilik:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                 <select data-options="valueField:'kode',textField:'nama_bagian',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian'" class="easyui-combobox" name="kode_bagian" required="true" label="Bagian:" style="width:100%"></select>
+                 <select data-options="valueField:'tujuan',textField:'tujuan',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian'" class="easyui-combobox" name="tujuan" required="true" label="tujuan:" style="width:100%"></select>
             </div>
             <div style="margin-bottom:10px">
-                <input name="isi_Ekspedisi" class="easyui-textbox" label="Isi Ekspedisi:" style="width:100%; height:100px" data-options="multiline:true">
+                <input data-options="valueField:'petugas_ekspedisi',textField:'petugas_ekspedisi',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="petugas_ekspedisi" required="true" label="petugas_ekspedisi:" style="width:100%">
             </div>
+            <div style="margin-bottom:10px">
+                <input data-options="valueField:'keterangan',textField:'keterangan',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-textbox" name="keterangan" required="true" label="keterangan:" style="width:100%">
+            </div>
+
         </form>
     </div>
     <div id="dlg-buttons">
