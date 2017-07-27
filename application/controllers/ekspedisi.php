@@ -6,6 +6,7 @@ class Ekspedisi extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('ekspedisimodel');
 	}
 
 	public function index()
