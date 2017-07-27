@@ -3,7 +3,7 @@
         <table id="dg"  class="easyui-datagrid" 
             url="<?php echo base_url();?>index.php/berkas/get_berkas"
             toolbar="#toolbar"
-            rownumbers="true" pagination="true" border="false" striped="true" fit="true" singleSelect="true" collapsible="false" nowrap="false" pageSize="10" style="width:auto; height: auto;"
+            rownumbers="true" pagination="true" border="false" striped="true" singleSelect="true" nowrap="false" pageSize="10" fitColumns="true" style="width:auto; height: 545px;" 
             >
         <thead>
             <tr>
@@ -55,7 +55,7 @@
     </div>
 
 <script type="text/javascript">
-            
+        
     var url;
     function tambahBerkas(){
 

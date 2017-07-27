@@ -67,7 +67,7 @@
             });
             
             
-            $('#content_tab').panel('refresh',base_url+'index.php/menu/getContentMenu/'+view);
+            //$('#content_tab').panel('refresh',base_url+'index.php/menu/getContentMenu/'+view);
      //       }
      //    });
       }

@@ -22,12 +22,12 @@
     
 </head>
 
-<body class="easyui-layout">
+<body class="easyui-layout" style="overflow-y: hidden;" scroll="no">
      <div data-options="region:'north',border:false" style="height:50px;background:#a1caf4;padding:10px; background-image:url(<?php echo base_url('image/banner.png');?>); background-repeat:no-repeat; background-position:center left;"></div>
     <div data-options="region:'east',title:'Filter',collapsed:true" style="width:200px;">
     kanan
     </div>
-    <div data-options="region:'center'" id="center-content" style="background:#eee;">
+    <div data-options="region:'center'" id="center-content" style="background:#eee; overflow: hidden;">
         <div id='content_tab' class="easyui-tabs isinya" border='false' fit="true" cache='false'>
         <div id='isi_content' title="Main Content" style='overflow:hidden'>
         </div>
@@ -36,6 +36,7 @@
     <div data-options="region:'west',title:'Menu'" style="width:200px;">
         <?php include('common/sidebar_menu.php') ?>
     </div>
+    <div data-options="region:'south',border:false" style="background:#2980b9; color:#ecf0f1; padding:10px; text-align:center; overflow: hidden;">SIM PDAM Kota Malang</div>
 
    
 </body>
