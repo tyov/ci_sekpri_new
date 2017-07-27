@@ -30,7 +30,7 @@
      $('#tt').tree({
          url: '<?php echo base_url('index.php/menu/getData');?>',
          onClick: function(node){
-            console.log(node);
+            //console.log(node);
             loadCenterContent(node);
         }
     });
@@ -55,6 +55,8 @@
              // $('#center-content').html(response.responseText);
              // $.parser.parse();
              // $.parser.parse('#center-content');
+            $('#dlg').dialog('close');
+            $('#dlg_ekspedisi').dialog('close');
             $('#content_tab').tabs("close", 0);
             $('#content_tab').tabs('add', {
                 

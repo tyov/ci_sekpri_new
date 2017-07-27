@@ -21,6 +21,22 @@ class Ekspedisi extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function tambah_ekspedisi(){
+		//echo "test ";
+		$result=$this->ekspedisimodel->tambah_ekspedisi();
+		echo json_encode($result);
+	}
+
+	public function hapus_ekspedisi($id_ekspedisi)
+	{
+		$this->db->where('id_ekspedisi', $id_ekspedisi);
+		if ($this->db->delete('berkas_ekspedisi')) {
+			return "success";
+		} else {
+			return "delete failed";
+		}
+	}
+
 }
 
 /* End of file ekspedisi.php */

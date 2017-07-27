@@ -21,21 +21,21 @@
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="tambahEkspedisi()">Tambah</a>
     </div>
 </div>
-    <div id="dlg" class="easyui-dialog" style="width:400px"
-            closed="true" buttons="#dlg-buttons">
-        <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
+    <div id="dlg_ekspedisi" class="easyui-dialog" style="width:400px"
+            closed="true" buttons="#dlg_ekspedisi-buttons">
+        <form id="fm_ekspedisi" method="post" novalidate style="margin:0;padding:20px 50px">
             <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">Data</div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'id_jenis_ekspedisi',textField:'id_jenis_ekspedisi',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" name="id_jenis_ekspedisi" class="easyui-combobox" required="true" label="id_jenis_ekspedisi:" style="width:100%">
+                <input data-options="valueField:'id_jenis_ekspedisi',textField:'id_jenis_ekspedisi',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" name="id_jenis_ekspedisi" class="easyui-textbox" required="true" label="id_jenis_ekspedisi:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'id_berkas',textField:'id_berkas',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="id_berkas" required="id_berkas" label="Pemilik:" style="width:100%">
+                <input data-options="valueField:'id_berkas',textField:'id_berkas',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-textbox" name="id_berkas" required="id_berkas" label="id_berkas:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                 <select data-options="valueField:'tujuan',textField:'tujuan',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian'" class="easyui-combobox" name="tujuan" required="true" label="tujuan:" style="width:100%"></select>
+                 <select data-options="valueField:'tujuan',textField:'tujuan',url:'<?php echo base_url(); ?>index.php/bagian/get_bagian'" class="easyui-textbox" name="tujuan" required="true" label="tujuan:" style="width:100%"></select>
             </div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'petugas_ekspedisi',textField:'petugas_ekspedisi',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-combobox" name="petugas_ekspedisi" required="true" label="petugas_ekspedisi:" style="width:100%">
+                <input data-options="valueField:'petugas_ekspedisi',textField:'petugas_ekspedisi',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-textbox" name="petugas_ekspedisi" required="true" label="petugas_ekspedisi:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
                 <input data-options="valueField:'keterangan',textField:'keterangan',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" class="easyui-textbox" name="keterangan" required="true" label="keterangan:" style="width:100%">
@@ -43,9 +43,9 @@
 
         </form>
     </div>
-    <div id="dlg-buttons">
+    <div id="dlg_ekspedisi-buttons">
         <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="simpanEkspedisi()" style="width:90px">Save</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg_ekspedisi').dialog('close')" style="width:90px">Cancel</a>
     </div>
 
     <div id="mm" class="easyui-menu" style="width:120px;">
@@ -60,9 +60,9 @@
     var url;
     function tambahEkspedisi(){
 
-           $('#dlg').dialog('open').dialog('center').dialog('setTitle','Tambah Ekspedisi');
-           $('#fm').form('clear');
-           url = '<?php echo base_url(); ?>index.php/Ekspedisi/tambah_ekspedisi';
+           $('#dlg_ekspedisi').dialog('open').dialog('center').dialog('setTitle','Tambah Ekspedisi');
+           $('#fm_ekspedisi').form('clear');
+           url = '<?php echo base_url(); ?>index.php/ekspedisi/tambah_ekspedisi';
         }
 
 
@@ -93,8 +93,8 @@
             var row = $('#dg').datagrid('getSelected');
             console.log(row.tgl_terima);
             if (row){
-                $('#dlg').dialog('open').dialog('center').dialog('setTitle','Update Ekspedisi');
-                $('#fm').form('load',row);
+                $('#dlg_ekspedisi').dialog('open').dialog('center').dialog('setTitle','Update Ekspedisi');
+                $('#fm_ekspedisi').form('load',row);
                 url = '<?php echo base_url(); ?>index.php/Ekspedisi/update_ekspedisi/'+row.id_ekspedisi;
                 var tgl_terima = row.tgl_terima;
                 tgl_terima.toString();
@@ -126,7 +126,7 @@
         //console.log("test");
         //console.log(url);
 
-        $('#fm').form('submit',{
+        $('#fm_ekspedisi').form('submit',{
             url: url,
             onSubmit: function(){
             return $(this).form('validate');
@@ -139,7 +139,7 @@
             //         msg: result.errorMsg
             //     });
             // } else {
-            $('#dlg').dialog('close'); // close the dialog
+            $('#dlg_ekspedisi').dialog('close'); // close the dialog
             $('#dg').datagrid('reload'); // reload the user data
             //}
         }

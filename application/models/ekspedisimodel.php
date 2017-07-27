@@ -56,7 +56,7 @@ class Ekspedisimodel extends CI_Model {
 		        'petugas_ekspedisi' => $petugas_ekspedisi
 		);
 
-		if ($this->db->insert('berkas_data', $data)) {
+		if ($this->db->insert('berkas_ekspedisi', $data)) {
 			return "success";
 		} else {
 			return "insert failed";
