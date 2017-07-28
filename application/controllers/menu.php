@@ -51,23 +51,17 @@ class Menu extends CI_Controller {
 				        "text":"Agenda",
 				        "checked":false,
 				        "attributes":{
-				            "url":"berkas",
-				            "view":"berkas"
+				            "url":"agenda",
+				            "view":"agenda"
 				        	}
 				        },{
-				        "text":"Ekspedisi",
+				        "text":"Master Ruangan",
 				        "checked":false,
 				        "attributes":{
-				            "url":"ekspedisi",
-				            "view":"ekspedisi"
+				            "url":"master_ruangan",
+				            "view":"master_ruangan"
 				        	}
-				        },{
-				        "text":"Master Agenda",
-				        "checked":false,
-				        "attributes":{
-				            "url":"berkas",
-				            "view":"berkas"
-				        	}
+				        
 				        }]
 				 },{
 				    "id":3,
