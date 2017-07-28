@@ -1,6 +1,6 @@
 
 <div data-options="region:'center'" style="background:#eee;">
-        <table id="dg"  class="easyui-datagrid" 
+        <table id="dg_ekspedisi"  class="easyui-datagrid" 
             url="<?php echo base_url();?>index.php/ekspedisi/get_ekspedisi"
             toolbar="#toolbar"
             rownumbers="true" pagination="true" border="false" striped="true" singleSelect="true" nowrap="false" pageSize="10" fitColumns="true" style="width:auto; height: 545px;" 
@@ -48,7 +48,7 @@
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg_ekspedisi').dialog('close')" style="width:90px">Cancel</a>
     </div>
 
-    <div id="mm" class="easyui-menu" style="width:120px;">
+    <div id="mm_ekspedisi" class="easyui-menu" style="width:120px;">
     <div data-options="iconCls:'icon-edit'" plain="true" onclick="updateEkspedisi()">Edit</div>
     <div data-options="iconCls:'icon-remove'" plain="true" onclick="hapusEkspedisi()">Hapus</div>
     <div class="menu-sep"></div>
@@ -67,7 +67,7 @@
 
 
 
-        $('#dg').datagrid({
+        $('#dg_ekspedisi').datagrid({
             rowStyler: function(index,row){
                 if (row.status_desc=="Belum Terkirim"){
                     return 'background-color:#48A7C9;color:#fff;';
@@ -76,12 +76,12 @@
         });
 
 
-        $("#dg").datagrid({  
+        $("#dg_ekspedisi").datagrid({  
             onRowContextMenu: function (e, rowIndex, rowData) { 
                 e.preventDefault(); 
                 $(this).datagrid("clearSelections"); 
                 $(this).datagrid("selectRow", rowIndex);
-                $('#mm').menu('show', {  
+                $('#mm_ekspedisi').menu('show', {  
                     left: e.pageX,
                     top: e.pageY  
                 });  
@@ -90,7 +90,7 @@
         });
 
     function updateEkspedisi(){
-            var row = $('#dg').datagrid('getSelected');
+            var row = $('#dg_ekspedisi').datagrid('getSelected');
             console.log(row.tgl_terima);
             if (row){
                 $('#dlg_ekspedisi').dialog('open').dialog('center').dialog('setTitle','Update Ekspedisi');
@@ -103,13 +103,13 @@
         }
 
     function hapusEkspedisi() {
-        var row = $('#dg').datagrid('getSelected');
+        var row = $('#dg_ekspedisi').datagrid('getSelected');
         if (row){
             $.messager.confirm('Confirm','Yakin hapus data ini?',function(r){
                 if (r){
                     $.post('<?php echo base_url(); ?>index.php/Ekspedisi/hapus_ekspedisi/'+row.id_ekspedisi,{id_ekspedisi:row.id_ekspedisi},function(result){
                         //if (result.success){
-                            $('#dg').datagrid('reload');    // reload the user data
+                            $('#dg_ekspedisi').datagrid('reload');    // reload the user data
                         //} else {
                         //     $.messager.show({    // show error message
                         //         title: 'Error',
@@ -140,7 +140,7 @@
             //     });
             // } else {
             $('#dlg_ekspedisi').dialog('close'); // close the dialog
-            $('#dg').datagrid('reload'); // reload the user data
+            $('#dg_ekspedisi').datagrid('reload'); // reload the user data
             //}
         }
         });
