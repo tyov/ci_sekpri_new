@@ -88,14 +88,6 @@
             }  
         });
 
-        $('#tgl_terima').datetimebox({
-            required:true
-        });
-
-        function checkTime(i) {
-            return (i < 10) ? "0" + i : i;
-        }
-
         // $('#tgl_terima').datetimebox('datebox')
 
     function updateBerkas(){
@@ -105,9 +97,6 @@
                 $('#dlg').dialog('open').dialog('center').dialog('setTitle','Update Berkas');
                 $('#fm').form('load',row);
                 url = '<?php echo base_url(); ?>index.php/berkas/update_berkas/'+row.id_berkas;
-                var tgl_terima = row.tgl_terima;
-                tgl_terima.toString();
-                 $('#tgl_terima').datetimebox('setValue', tgl_terima.toString());
             }
         }
 

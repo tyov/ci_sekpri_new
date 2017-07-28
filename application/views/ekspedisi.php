@@ -96,9 +96,6 @@
                 $('#dlg_ekspedisi').dialog('open').dialog('center').dialog('setTitle','Update Ekspedisi');
                 $('#fm_ekspedisi').form('load',row);
                 url = '<?php echo base_url(); ?>index.php/Ekspedisi/update_ekspedisi/'+row.id_ekspedisi;
-                var tgl_terima = row.tgl_terima;
-                tgl_terima.toString();
-                 $('#tgl_terima').datetimebox('setValue', tgl_terima.toString());
             }
         }
 
