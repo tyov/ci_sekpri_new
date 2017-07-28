@@ -65,8 +65,6 @@
            url = '<?php echo base_url(); ?>index.php/ekspedisi/tambah_ekspedisi';
         }
 
-
-
         $('#dg_ekspedisi').datagrid({
             rowStyler: function(index,row){
                 if (row.status_desc=="Belum Terkirim"){
@@ -74,7 +72,6 @@
                 }
             }
         });
-
 
         $("#dg_ekspedisi").datagrid({  
             onRowContextMenu: function (e, rowIndex, rowData) { 
@@ -91,7 +88,6 @@
 
     function updateEkspedisi(){
             var row = $('#dg_ekspedisi').datagrid('getSelected');
-            console.log(row.tgl_terima);
             if (row){
                 $('#dlg_ekspedisi').dialog('open').dialog('center').dialog('setTitle','Update Ekspedisi');
                 $('#fm_ekspedisi').form('load',row);
