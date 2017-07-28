@@ -37,6 +37,12 @@ class Ekspedisi extends CI_Controller {
 		}
 	}
 
+	public function update_ekspedisi($id_ekspedisi)
+	{
+		$result=$this->ekspedisimodel->update_ekspedisi($id_ekspedisi);
+		echo json_encode($result);
+    }
+
 }
 
 /* End of file ekspedisi.php */

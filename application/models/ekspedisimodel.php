@@ -62,6 +62,31 @@ class Ekspedisimodel extends CI_Model {
 			return "insert failed";
 		}
 	}
+
+	public function update_ekspedisi($id_ekspedisi)
+	{
+		$id_jenis_ekspedisi = htmlspecialchars($_REQUEST['id_jenis_ekspedisi']);
+		$id_berkas = htmlspecialchars($_REQUEST['id_berkas']);
+		$tujuan = htmlspecialchars($_REQUEST['tujuan']);
+		$keterangan = htmlspecialchars($_REQUEST['keterangan']);
+		$petugas_ekspedisi = htmlspecialchars($_REQUEST['petugas_ekspedisi']);
+
+		$data = array(
+		        'id_jenis_ekspedisi' => $id_jenis_ekspedisi,
+		        'id_berkas' => $id_berkas,
+		        'tujuan' => $tujuan,
+		        'keterangan' => $keterangan,
+		        'petugas_ekspedisi' => $petugas_ekspedisi
+		);
+
+		$this->db->where('id_ekspedisi', $id_ekspedisi);
+
+		if ($this->db->update('berkas_ekspedisi', $data)) {
+			return "success";
+		} else {
+			return "update failed";
+		}
+	}
 }
 
 /* End of file ekspedisimodel.php */
