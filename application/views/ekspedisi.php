@@ -105,8 +105,11 @@
             $.messager.confirm('Confirm','Yakin hapus data ini?',function(r){
                 if (r){
                     $.post('<?php echo base_url(); ?>index.php/Ekspedisi/hapus_ekspedisi/'+row.id_ekspedisi,{id_ekspedisi:row.id_ekspedisi},function(result){
+                        //alert(result.error);
+                         $('#dg_ekspedisi').datagrid('reload');
                         //if (result.success){
-                            $('#dg_ekspedisi').datagrid('reload');    // reload the user data
+                            //console.log("asd");
+                            //$('#dg_ekspedisi').datagrid('reload');    // reload the user data
                         //} else {
                         //     $.messager.show({    // show error message
                         //         title: 'Error',

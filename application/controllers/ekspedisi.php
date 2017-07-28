@@ -31,10 +31,11 @@ class Ekspedisi extends CI_Controller {
 	{
 		$this->db->where('id_ekspedisi', $id_ekspedisi);
 		if ($this->db->delete('berkas_ekspedisi')) {
-			return "success";
+			$result['error']=false;
 		} else {
-			return "delete failed";
+			$result['error']=true;
 		}
+		echo json_encode($result);
 	}
 
 	public function update_ekspedisi($id_ekspedisi)
