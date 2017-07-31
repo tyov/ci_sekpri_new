@@ -1,20 +1,19 @@
 
 <div data-options="region:'center'" style="background:#eee;">
-        <table id="dg"  class="easyui-datagrid" 
-            url="<?php echo base_url();?>index.php/berkas/get_berkas"
+        <table id="dg_agenda"  class="easyui-datagrid" 
+            url="<?php echo base_url();?>index.php/agenda/get_agenda"
             toolbar="#toolbar"
             rownumbers="true" pagination="true" border="false" striped="true" singleSelect="true" nowrap="false" pageSize="10" fitColumns="true" style="width:auto; height: 545px;" 
             >
         <thead>
             <tr>
                 <th field="id_agenda" width="50" halign="center" align="center">No</th>
-                <th field="ruangan_desc" width="70" halign="center" align="center">Ruangan</th>
+                <th field="id_ruangan_desc" width="70" halign="center" align="center">Ruangan</th>
                 <th field="id_pemesan_desc" width="150" halign="center" align="center">Pemesan</th>
-                <th field="tgl_pemesanan" width="150" halign="center" align="center">Tanggal Pemesanan</th>
-                <th field="keterangan" width="400" halign="center">Keterangan</th>
-                <th field="tgl_mulai" width="150" halign="center" align="center">Tanggal Mulai</th>
-                <th field="tgl_selesai" width="150" halign="center" align="center">Tanggal Selesai</th>
-
+                <th field="tgl_pemesanan" width="155" halign="center" align="center">Tanggal Pemesanan</th>
+                <th field="Keterangan" width="400" halign="center">Keterangan</th>
+                <th field="tgl_mulai" width="155" halign="center" align="center">Tanggal Mulai</th>
+                <th field="tgl_selesai" width="155" halign="center" align="center">Tanggal Selesai</th>
             </tr>
         </thead>
     </table>
@@ -22,29 +21,36 @@
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="tambahAgenda()">Tambah</a>
     </div>
 </div>
-    <div id="dlg" class="easyui-dialog" style="width:400px"
-            closed="true" buttons="#dlg-buttons">
-        <form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
+    <div id="dlg_agenda" class="easyui-dialog" style="width:400px"
+            closed="true" buttons="#dlg_agenda-buttons">
+        <form id="fm_agenda" method="post" novalidate style="margin:0;padding:20px 50px">
             <div style="margin-bottom:20px;font-size:14px;border-bottom:1px solid #ccc">Data</div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" name="pemesan" class="easyui-combobox" required="true" label="Pemesan:" style="width:100%">
+                <input data-options="valueField:'nip',textField:'nama_lengkap',url:'<?php echo base_url(); ?>index.php/karyawan/get_karyawan'" name="id_pemesan" class="easyui-combobox" required="true" label="Pemesan:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input data-options="valueField:'id_ruangan',textField:'id_ruangan',url:'<?php echo base_url(); ?>index.php/ruangan/get_ruangan'" class="easyui-combobox" name="ruangan" required="true" label="Ruangan:" style="width:100%">
+                <input data-options="valueField:'id_ruangan',textField:'keterangan',url:'<?php echo base_url(); ?>index.php/master_ruangan/get_master_ruangan_desc'" class="easyui-combobox" name="id_ruangan" required="true" label="Ruangan:" style="width:100%">
+            </div>
+
+            <div style="margin-bottom:10px">
+                <input data-options="valueField:'tgl_mulai',textField:'tgl_mulai'" class="easyui-datetimebox" name="tgl_mulai" required="true" label="Tgl Mulai:" style="width:100%">
+            </div>
+            <div style="margin-bottom:10px">
+                <input data-options="valueField:'tgl_selesai',textField:'tgl_selesai'" class="easyui-datetimebox" name="tgl_selesai" required="true" label="Tgl Selesai:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
                 <input name="keterangan" class="easyui-textbox" label="Keterangan:" style="width:100%; height:100px" data-options="multiline:true">
             </div>
         </form>
     </div>
-    <div id="dlg-buttons">
-        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="simpanBerkas()" style="width:90px">Save</a>
-        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+    <div id="dlg_agenda-buttons">
+        <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="simpanAgenda()" style="width:90px">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg_agenda').dialog('close')" style="width:90px">Cancel</a>
     </div>
 
-    <div id="mm" class="easyui-menu" style="width:120px;">
-    <div data-options="iconCls:'icon-edit'" plain="true" onclick="updateBerkas()">Edit</div>
-    <div data-options="iconCls:'icon-remove'" plain="true" onclick="hapusBerkas()">Hapus</div>
+    <div id="mm_agenda" class="easyui-menu" style="width:120px;">
+    <div data-options="iconCls:'icon-edit'" plain="true" onclick="updateAgenda()">Edit</div>
+    <div data-options="iconCls:'icon-remove'" plain="true" onclick="hapusAgenda()">Hapus</div>
     <div class="menu-sep"></div>
     <div>Exit</div>
     </div>
@@ -54,14 +60,14 @@
     var url;
     function tambahAgenda(){
 
-           $('#dlg').dialog('open').dialog('center').dialog('setTitle','Tambah Agenda');
-           $('#fm').form('clear');
+           $('#dlg_agenda').dialog('open').dialog('center').dialog('setTitle','Tambah Agenda');
+           $('#fm_agenda').form('clear');
            url = '<?php echo base_url(); ?>index.php/agenda/tambah_agenda';
         }
 
 
 
-        $('#dg').datagrid({
+        $('#dg_agenda').datagrid({
             rowStyler: function(index,row){
                 if (row.status_desc=="Belum Terkirim"){
                     return 'background-color:#48A7C9;color:#fff;';
@@ -70,12 +76,12 @@
         });
 
 
-        $("#dg").datagrid({  
+        $("#dg_agenda").datagrid({  
             onRowContextMenu: function (e, rowIndex, rowData) { 
                 e.preventDefault(); 
                 $(this).datagrid("clearSelections"); 
                 $(this).datagrid("selectRow", rowIndex);
-                $('#mm').menu('show', {  
+                $('#mm_agenda').menu('show', {  
                     left: e.pageX,
                     top: e.pageY  
                 });  
@@ -83,9 +89,6 @@
             }  
         });
 
-        $('#tgl_pemesanan').datetimebox({
-            required:true
-        });
 
         function checkTime(i) {
             return (i < 10) ? "0" + i : i;
@@ -94,26 +97,23 @@
         // $('#tgl_terima').datetimebox('datebox')
 
     function updateAgenda(){
-            var row = $('#dg').datagrid('getSelected');
+            var row = $('#dg_agenda').datagrid('getSelected');
             console.log(row.tgl_pemesanan);
             if (row){
-                $('#dlg').dialog('open').dialog('center').dialog('setTitle','Update Agenda');
-                $('#fm').form('load',row);
+                $('#dlg_agenda').dialog('open').dialog('center').dialog('setTitle','Update Agenda');
+                $('#fm_agenda').form('load',row);
                 url = '<?php echo base_url(); ?>index.php/agenda/update_agenda/'+row.id_agenda;
-                var tgl_pemesanan = row.tgl_pemesanan;
-                tgl_terima.toString();
-                 $('#tgl_pemesanan').datetimebox('setValue', tgl_pemesanan.toString());
             }
         }
 
     function hapusAgenda() {
-        var row = $('#dg').datagrid('getSelected');
+        var row = $('#dg_agenda').datagrid('getSelected');
         if (row){
             $.messager.confirm('Confirm','Yakin hapus data ini?',function(r){
                 if (r){
                     $.post('<?php echo base_url(); ?>index.php/agenda/hapus_agenda/'+row.id_agenda,{id_agenda:row.id_agenda},function(result){
                         //if (result.success){
-                            $('#dg').datagrid('reload');    // reload the user data
+                            $('#dg_agenda').datagrid('reload');    // reload the user data
                         //} else {
                         //     $.messager.show({    // show error message
                         //         title: 'Error',
@@ -127,10 +127,10 @@
     }
 
     function simpanAgenda(){
-        //console.log("test");
+        console.log("test");
         //console.log(url);
 
-        $('#fm').form('submit',{
+        $('#fm_agenda').form('submit',{
             url: url,
             onSubmit: function(){
             return $(this).form('validate');
@@ -143,8 +143,8 @@
             //         msg: result.errorMsg
             //     });
             // } else {
-            $('#dlg').dialog('close'); // close the dialog
-            $('#dg').datagrid('reload'); // reload the user data
+            $('#dlg_agenda').dialog('close'); // close the dialog
+            $('#dg_agenda').datagrid('reload'); // reload the user data
             //}
         }
         });

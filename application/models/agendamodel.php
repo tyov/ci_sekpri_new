@@ -30,9 +30,9 @@ left join (SELECT * FROM bagian where kode_manajer = '00' and kode_asisten_manaj
 left join (SELECT * FROM bagian where kode_manajer = '00' and kode_asisten_manajer = '00' and kode_supervisor = '00' and kode_staff = '00' and kode_direktur in (1,2,3)) d on a.DIR_AKHIR_ID = d.kode_direktur
 left join karyawan e on a.USER_KIRIM = e.nip
 left join karyawan f on a.USER_AMBIL = F.nip");*/
-			$this->db->select("a.*, b.id_ruangan ruangan_desc, c.nip id_pemesan_desc");
+			$this->db->select("a.*, b.keterangan id_ruangan_desc, c.nama_lengkap id_pemesan_desc");
 			$this->db->from("agenda a");
-			$this->db->join("ruangan b", "a.ruangan=b.id_ruangan");
+			$this->db->join("master_ruangan b", "a.id_ruangan=b.id_ruangan");
 			$this->db->join("karyawan c", "a.id_pemesan=c.nip");
         	if($searchKey<>''){
 				$this->db->where($searchKey." like '%".$searchValue."%'");	
@@ -44,9 +44,8 @@ left join karyawan f on a.USER_AMBIL = F.nip");*/
 
 	public function tambah_agenda(){
 
-		$id_ruangan = htmlspecialchars($_REQUEST['id_ruangan']);
 		$id_pemesan = htmlspecialchars($_REQUEST['id_pemesan']);
-		$kode_bagian = htmlspecialchars($_REQUEST['kode_bagian']);
+		$id_ruangan = htmlspecialchars($_REQUEST['id_ruangan']);
 		$keterangan = htmlspecialchars($_REQUEST['keterangan']);
 		$tgl_mulai = htmlspecialchars($_REQUEST['tgl_mulai']);
 		$tgl_selesai = htmlspecialchars($_REQUEST['tgl_selesai']);
@@ -99,7 +98,7 @@ left join karyawan f on a.USER_AMBIL = F.nip");*/
 
 		$this->db->where('id_agenda', $id_agenda);
 
-		if ($this->db->update('a', $data)) {
+		if ($this->db->update('agenda', $data)) {
 			return "success";
 		} else {
 			return "update failed";

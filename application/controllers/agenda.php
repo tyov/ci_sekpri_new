@@ -28,19 +28,19 @@ class Agenda extends CI_Controller
 
 	public function tambah_agenda(){
 		//echo "test ";
-		$result=$this->agendamodel->tambah_agenda();
+		$result=$this->Agendamodel->tambah_agenda();
 		echo json_encode($result);
 	}
 
-	public function hapus_agenda($id_agenda)
+	public function hapus_agenda($nomor)
 	{
-		$result=$this->agendamodel->hapus_agenda($id_agenda);
+		$result=$this->Agendamodel->hapus_agenda($nomor);
 		echo json_encode($result);
 	}
 
-	public function update_agenda($id_agenda)
+	public function update_agenda($nomor)
 	{
-		$result=$this->agendamodel->update_agenda($id_agenda);
+		$result=$this->Agendamodel->update_agenda($nomor);
 		echo json_encode($result);
     }
 }

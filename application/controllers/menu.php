@@ -52,8 +52,8 @@ class Menu extends CI_Controller {
 				        "text":"Agenda",
 				        "checked":false,
 				        "attributes":{
-				            "url":"berkas",
-				            "view":"berkas"
+				            "url":"Agenda",
+				            "view":"Agenda"
 				        	}
 				        },{
 				        "id":"22",

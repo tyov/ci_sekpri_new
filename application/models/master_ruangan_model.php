@@ -82,4 +82,12 @@ class master_ruangan_model extends CI_Model {
 			return "update failed";
 		}
 	}
+
+	public function getAll()
+	{
+		$this->db->select("a.*");
+		$this->db->from("master_ruangan a");
+		$hasil=$this->db->get()->result_array();
+      	return $hasil;  	
+	}
 }

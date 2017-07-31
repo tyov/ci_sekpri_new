@@ -43,6 +43,12 @@ class Master_Ruangan extends CI_Controller
 		$result=$this->master_ruangan_model->update_master_ruangan($nomor);
 		echo json_encode($result);
     }
+
+   	public function get_master_ruangan_desc()
+	{
+		$data=$this->master_ruangan_model->getAll();
+		echo json_encode($data);
+	}
 }
 
 
