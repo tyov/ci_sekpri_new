@@ -22,11 +22,12 @@ class Ekspedisimodel extends CI_Model {
         } elseif ($jenis=='rows') {
         	$this->db->limit($rows,$offset);
         	$this->db->order_by($sort,$order);
-			$this->db->select("a.*");
+			$this->db->select("a.*, b.keterangan id_jenis_ekspedisi_desc, c.nama_lengkap as petugas_ekspedisi_desc, d.nama_lengkap as tujuan_desc");
 			$this->db->from("berkas_ekspedisi a");
 			// $this->db->join("(SELECT left(kode_jabatan,4) as kode, nama_bagian FROM bagian group by left(kode_jabatan,4), nama_bagian) b", "a.kode_bagian = b.kode");
-			// $this->db->join("karyawan c", "a.penerima_berkas=c.nip");
-			// $this->db->join("karyawan d", "a.pemilik_berkas=d.nip");
+			$this->db->join("master_ekspedisi b", "a.id_jenis_ekspedisi=b.id_jenis_ekspedisi");
+			$this->db->join("karyawan c", "a.petugas_ekspedisi=c.nip");
+			$this->db->join("karyawan d", "a.tujuan=d.nip");
         	if($searchKey<>''){
 				$this->db->where($searchKey." like '%".$searchValue."%'");	
 			}

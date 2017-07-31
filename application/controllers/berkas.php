@@ -43,4 +43,10 @@ class Berkas extends CI_Controller
 		$result=$this->Berkasmodel->update_berkas($nomor);
 		echo json_encode($result);
     }
+
+    public function get_berkas_desc()
+	{
+		$data=$this->Berkasmodel->getJson('rows');
+		echo json_encode($data);
+	}
 }

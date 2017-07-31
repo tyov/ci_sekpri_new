@@ -44,6 +44,12 @@ class Master_ekspedisi extends CI_Controller {
 		echo json_encode($result);
     }
 
+    public function get_master_ekspedisi_desc()
+	{
+		$data=$this->master_ekspedisi_model->getJson('rows');
+		echo json_encode($data);
+	}
+
 }
 
 /* End of file master_master_ekspedisi.php */
