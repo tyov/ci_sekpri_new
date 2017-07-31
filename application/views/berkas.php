@@ -8,7 +8,7 @@
         <thead>
             <tr>
                 <th field="id_berkas" width="50" halign="center" align="center">No</th>
-                <th field="tgl_terima" width="150" halign="center" align="center">Tanggal Terima</th>
+                <th field="tgl_terima_desc" width="150" halign="center" align="center">Tanggal Terima</th>
                 <th field="penerima_berkas_desc" width="150" halign="center">Penerima Berkas</th>
                 <th field="pemilik_berkas_desc" width="150" halign="center">Pemilik Berkas</th>
                 <th field="keterangan" width="250" halign="center" hidden="true">Keterangan</th>
@@ -17,6 +17,9 @@
                 <th field="penerima_berkas" width="50"  hidden="true">Penerima Berkas</th>
                 <th field="pemilik_berkas" width="50" hidden="true">Pemilik Berkas</th>
                 <th field="bagian" width="50" hidden="true">Bagian</th>
+                <?php
+
+                ?>
             </tr>
         </thead>
     </table>

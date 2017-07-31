@@ -11,7 +11,7 @@
                 <th field="id_ruangan_desc" width="90" halign="center" align="center">Ruangan</th>
                 <th field="id_pemesan_desc" width="150" halign="center" align="center">Pemesan</th>
                 <th field="tgl_pemesanan" width="150" halign="center" align="center">Tanggal Pemesanan</th>
-                <th field="Keterangan" width="300" halign="center">Keterangan</th>
+                <th field="keterangan" width="300" halign="center">Keterangan</th>
                 <th field="tgl_mulai" width="150" halign="center" align="center">Tanggal Mulai</th>
                 <th field="tgl_selesai" width="150" halign="center" align="center">Tanggal Selesai</th>
             </tr>
@@ -39,7 +39,7 @@
                 <input data-options="valueField:'tgl_selesai',textField:'tgl_selesai'" class="easyui-datetimebox" name="tgl_selesai" required="true" label="Tgl Selesai:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="keterangan" class="easyui-textbox" label="Keterangan:" style="width:100%; height:100px" data-options="multiline:true">
+                <input name="Keterangan" class="easyui-textbox" label="Keterangan:" style="width:100%; height:100px" data-options="multiline:true">
             </div>
         </form>
     </div>

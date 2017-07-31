@@ -3,11 +3,11 @@
         <table id="dg_master_ekspedisi"  class="easyui-datagrid" 
             url="<?php echo base_url();?>index.php/master_ekspedisi/get_master_ekspedisi"
             toolbar="#toolbar"
-            rownumbers="true" pagination="true" border="false" striped="true" singleSelect="true" nowrap="false" pageSize="10" fitColumns="true" style="width:auto; height: 545px;" 
+            rownumbers="true" pagination="true" border="false" striped="true" singleSelect="true" nowrap="false" pageSize="10" style="width:auto; height: 545px;" 
             >
         <thead>
             <tr>
-                <th field="id_jenis_ekspedisi" width="50" halign="center" align="center">No Jenis Ekspedisi</th>
+                <th field="id_jenis_ekspedisi" width="150" halign="center" align="center">No Jenis Ekspedisi</th>
                 <th field="keterangan" width="150" halign="center" align="center">Keterangan</th>
             </tr>
         </thead>

@@ -10,7 +10,7 @@
                 <th field="id_ekspedisi" width="100" halign="center" align="center">No Ekspedisi</th>
                 <th field="id_berkas" width="100" halign="center" align="center">No Berkas</th>
                 <th field="id_jenis_ekspedisi_desc" width="250" halign="center" align="center">Jenis Ekspedisi</th>
-                <th field="tgl_ekspedisi" width="200" halign="center" align="center">Tanggal Ekspedisi</th>
+                <th field="tgl_ekspedisi_desc" width="200" halign="center" align="center">Tanggal Ekspedisi</th>
                 <th field="tujuan_desc" width="150" halign="center">Tujuan</th>
                 <th field="petugas_ekspedisi_desc" width="150" halign="center" >Petugas Ekspedisi</th>
                 <th field="keterangan" width="400" halign="center" >Keterangan</th>

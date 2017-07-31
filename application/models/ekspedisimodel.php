@@ -22,7 +22,7 @@ class Ekspedisimodel extends CI_Model {
         } elseif ($jenis=='rows') {
         	$this->db->limit($rows,$offset);
         	$this->db->order_by($sort,$order);
-			$this->db->select("a.*, b.keterangan id_jenis_ekspedisi_desc, c.nama_lengkap as petugas_ekspedisi_desc, d.nama_lengkap as tujuan_desc");
+			$this->db->select("a.id_ekspedisi, a. id_jenis_ekspedisi, a.id_berkas, convert(varchar(20),a.tgl_ekspedisi,120) as tgl_ekspedisi_desc, a.tujuan, a.keterangan, a.petugas_ekspedisi, b.keterangan id_jenis_ekspedisi_desc, c.nama_lengkap as petugas_ekspedisi_desc, d.nama_lengkap as tujuan_desc");
 			$this->db->from("berkas_ekspedisi a");
 			// $this->db->join("(SELECT left(kode_jabatan,4) as kode, nama_bagian FROM bagian group by left(kode_jabatan,4), nama_bagian) b", "a.kode_bagian = b.kode");
 			$this->db->join("master_ekspedisi b", "a.id_jenis_ekspedisi=b.id_jenis_ekspedisi");
@@ -35,7 +35,7 @@ class Ekspedisimodel extends CI_Model {
         	return $hasil;
     	}
 	}
-	
+
 	public function tambah_ekspedisi(){
 
 		$id_jenis_ekspedisi = htmlspecialchars($_REQUEST['id_jenis_ekspedisi']);

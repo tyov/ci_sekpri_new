@@ -22,7 +22,7 @@ class Berkasmodel extends CI_Model {
         } elseif ($jenis=='rows') {
         	$this->db->limit($rows,$offset);
         	$this->db->order_by($sort,$order);
-			$this->db->select("a.*, b.nama_bagian bagian_desc, c.nama_lengkap penerima_berkas_desc, d.nama_lengkap pemilik_berkas_desc");
+			$this->db->select("a.id_berkas, convert(varchar(20),a.tgl_terima,120) as tgl_terima_desc, a.penerima_berkas, a.pemilik_berkas, a.kode_bagian, a.isi_berkas, b.nama_bagian bagian_desc, c.nama_lengkap penerima_berkas_desc, d.nama_lengkap pemilik_berkas_desc");
 			$this->db->from("berkas a");
 			$this->db->join("(SELECT left(kode_jabatan,4) as kode, nama_bagian FROM bagian group by left(kode_jabatan,4), nama_bagian) b", "a.kode_bagian = b.kode");
 			$this->db->join("karyawan c", "a.penerima_berkas=c.nip");
