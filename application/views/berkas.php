@@ -9,17 +9,17 @@
             <tr>
                 <th field="id_berkas" width="50" halign="center" align="center">No</th>
                 <th field="tgl_terima_desc" width="150" halign="center" align="center">Tanggal Terima</th>
-                <th field="penerima_berkas_desc" width="150" halign="center">Penerima Berkas</th>
-                <th field="pemilik_berkas_desc" width="150" halign="center">Pemilik Berkas</th>
+                <th field="penerima_berkas_desc" width="125" halign="center">Penerima Berkas</th>
+                <th field="pemilik_berkas_desc" width="125" halign="center">Pemilik Berkas</th>
                 <th field="keterangan" width="250" halign="center" hidden="true">Keterangan</th>
-                <th field="bagian_desc" width="200" halign="center" >Bagian</th>
-                <th field="isi_berkas" width="400" halign="center" >Isi Berkas</th>
+                <th field="bagian_desc" width="150" halign="center" >Bagian</th>
+                <th field="isi_berkas" width="350" halign="center" >Isi Berkas</th>
                 <th field="penerima_berkas" width="50"  hidden="true">Penerima Berkas</th>
                 <th field="pemilik_berkas" width="50" hidden="true">Pemilik Berkas</th>
                 <th field="bagian" width="50" hidden="true">Bagian</th>
-                <?php
-
-                ?>
+                <th field="eksp_1" width="50" halign="center">Eksp 1</th>
+                <th field="eksp_2" width="50" halign="center">Eksp 2</th>
+                <th field="eksp_3" width="50" halign="center">Eksp 3</th>
             </tr>
         </thead>
     </table>
