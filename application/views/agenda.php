@@ -8,12 +8,12 @@
         <thead>
             <tr>
                 <th field="id_agenda" width="50" halign="center" align="center">No</th>
-                <th field="id_ruangan_desc" width="70" halign="center" align="center">Ruangan</th>
+                <th field="id_ruangan_desc" width="90" halign="center" align="center">Ruangan</th>
                 <th field="id_pemesan_desc" width="150" halign="center" align="center">Pemesan</th>
-                <th field="tgl_pemesanan" width="155" halign="center" align="center">Tanggal Pemesanan</th>
-                <th field="Keterangan" width="400" halign="center">Keterangan</th>
-                <th field="tgl_mulai" width="155" halign="center" align="center">Tanggal Mulai</th>
-                <th field="tgl_selesai" width="155" halign="center" align="center">Tanggal Selesai</th>
+                <th field="tgl_pemesanan" width="150" halign="center" align="center">Tanggal Pemesanan</th>
+                <th field="Keterangan" width="300" halign="center">Keterangan</th>
+                <th field="tgl_mulai" width="150" halign="center" align="center">Tanggal Mulai</th>
+                <th field="tgl_selesai" width="150" halign="center" align="center">Tanggal Selesai</th>
             </tr>
         </thead>
     </table>

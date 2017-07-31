@@ -22,15 +22,12 @@ class Agendamodel extends CI_Model {
         } elseif ($jenis=='rows') {
         	$this->db->limit($rows,$offset);
         	$this->db->order_by($sort,$order);
-/*        	$this->db->select("a.Nomor as NOMOR, c.keterangan as KE_desc, d.keterangan as POSISI_desc, (CONVERT(varchar(10),TGL_KIRIM,101)+''+RIGHT(CONVERT(varchar(19),TGL_KIRIM,120),9)) as TGL_KIRIM, b.nama_bagian as bagian_desc, a.keterangan, e.nama_lengkap as PENGIRIM_desc, f.nama_lengkap as pengambil_desc,case when a.status='1' then 'Sudah Terkirim' else 'Belum Terkirim' end as
-							status_desc, a.DIR_AWAL_ID as KE, a.DIR_AKHIR_ID as POSISI, b.kode as bagian, e.nip as PENGIRIM, f.nip as pengambil, a.status as status");
-        	$this->db->from("tbl_berkas a
-left join (SELECT left(kode_bagian,4) as kode, nama_bagian FROM bagian group by left(kode_bagian,4), nama_bagian) b on a.bagian_id = b.kode
-left join (SELECT * FROM bagian where kode_manajer = '00' and kode_asisten_manajer = '00' and kode_supervisor = '00' and kode_staff = '00' and kode_direktur in (1,2,3)) c on a.DIR_AWAL_ID = c.kode_direktur
-left join (SELECT * FROM bagian where kode_manajer = '00' and kode_asisten_manajer = '00' and kode_supervisor = '00' and kode_staff = '00' and kode_direktur in (1,2,3)) d on a.DIR_AKHIR_ID = d.kode_direktur
-left join karyawan e on a.USER_KIRIM = e.nip
-left join karyawan f on a.USER_AMBIL = F.nip");*/
-			$this->db->select("a.*, b.keterangan id_ruangan_desc, c.nama_lengkap id_pemesan_desc");
+			$this->db->select("a.id_agenda,a.id_ruangan,a.id_pemesan,
+				convert(varchar(20),tgl_pemesanan,120) as tgl_pemesanan,
+				a.keterangan,
+				convert(varchar(20),a.tgl_mulai,120) as tgl_mulai,
+				convert(varchar(20),a.tgl_selesai,120) as tgl_selesai, 
+				b.keterangan id_ruangan_desc, c.nama_lengkap id_pemesan_desc");
 			$this->db->from("agenda a");
 			$this->db->join("master_ruangan b", "a.id_ruangan=b.id_ruangan");
 			$this->db->join("karyawan c", "a.id_pemesan=c.nip");
