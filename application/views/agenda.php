@@ -39,7 +39,7 @@
                 <input data-options="valueField:'tgl_selesai',textField:'tgl_selesai'" class="easyui-datetimebox" name="tgl_selesai" required="true" label="Tgl Selesai:" style="width:100%">
             </div>
             <div style="margin-bottom:10px">
-                <input name="Keterangan" class="easyui-textbox" label="Keterangan:" style="width:100%; height:100px" data-options="multiline:true">
+                <input name="keterangan" class="easyui-textbox" label="Keterangan:" style="width:100%; height:100px" data-options="multiline:true">
             </div>
         </form>
     </div>
