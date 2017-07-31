@@ -16,10 +16,7 @@
     <!--<script type="text/javascript" src="./assets/jquery.easyui.patch.js"></script>-->
     <link rel="stylesheet" type="text/css" href="./assets/fonts/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="./assets/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="./assets/custom.css">
-    
-
-    
+    <link rel="stylesheet" type="text/css" href="./assets/custom.css">   
 </head>
 
 <body class="easyui-layout" style="overflow-y: hidden;" scroll="no">

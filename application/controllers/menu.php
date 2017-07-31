@@ -10,7 +10,7 @@ class Menu extends CI_Controller {
 
 	public function index()
 	{
-		echo "asd";
+		echo " ";
 	}
 	public function getData()
 	{
@@ -48,13 +48,15 @@ class Menu extends CI_Controller {
 				    "text":"Agenda",
 				    "iconCls":"icon-save",
 				    "children":[{
+				    	"id":"21",
 				        "text":"Agenda",
 				        "checked":false,
 				        "attributes":{
-				            "url":"agenda",
-				            "view":"agenda"
+				            "url":"berkas",
+				            "view":"berkas"
 				        	}
 				        },{
+				        "id":"22",
 				        "text":"Master Ruangan",
 				        "checked":false,
 				        "attributes":{
@@ -68,6 +70,7 @@ class Menu extends CI_Controller {
 				    "text":"Laporan",
 				    "iconCls":"icon-save",
 				    "children":[{
+				    	"id":"31",
 				        "text":"Berkas",
 				        "checked":false,
 				        "attributes":{
@@ -75,6 +78,7 @@ class Menu extends CI_Controller {
 				            "view":"berkas"
 				        	}
 				        },{
+				        "id":"32",
 				        "text":"Ekspedisi",
 				        "checked":false,
 				        "attributes":{
@@ -82,6 +86,7 @@ class Menu extends CI_Controller {
 				            "view":"berkas"
 				        	}
 				        },{
+				       	"id":"33",
 				        "text":"Master Laporan",
 				        "checked":false,
 				        "attributes":{
