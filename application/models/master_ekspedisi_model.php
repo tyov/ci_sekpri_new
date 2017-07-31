@@ -69,7 +69,6 @@ class Master_ekspedisi_model extends CI_Model {
 			return "update failed";
 		}
 	}
-
 }
 
 /* End of file master_master_ekspedisi_model.php */

@@ -25,7 +25,7 @@
             </div>
         </form>
     </div>
-    <div id="dlg_master_ekspedisi-buttons">
+    <div id="dlg_master_ekspedisi-buttons"> 
         <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="simpanMasterEkspedisi()" style="width:90px">Save</a>
         <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg_master_ekspedisi').dialog('close')" style="width:90px">Cancel</a>
     </div>

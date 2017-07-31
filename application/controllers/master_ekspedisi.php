@@ -30,7 +30,7 @@ class Master_ekspedisi extends CI_Controller {
 	public function hapus_master_ekspedisi($id_jenis_ekspedisi)
 	{
 		$this->db->where('id_jenis_ekspedisi', $id_jenis_ekspedisi);
-		if ($this->db->delete('berkas_master_ekspedisi')) {
+		if ($this->db->delete('master_ekspedisi')) {
 			$result['error']=false;
 		} else {
 			$result['error']=true;
