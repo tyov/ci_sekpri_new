@@ -35,7 +35,7 @@ class Ekspedisimodel extends CI_Model {
         	return $hasil;
     	}
 	}
-
+	
 	public function tambah_ekspedisi(){
 
 		$id_jenis_ekspedisi = htmlspecialchars($_REQUEST['id_jenis_ekspedisi']);
